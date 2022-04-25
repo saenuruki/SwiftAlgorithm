@@ -10,24 +10,24 @@
  * }
  */
 
-// Unfortunately become time limit exceeded
 class Solution {
     
-    var nodeMap = [Int: Node]()
+    var copiedNodes = [Int: Node]()
+
     func cloneGraph(_ node: Node?) -> Node? {
-        guard let firstNode = node else { return nil }
-        return cloneGraph(firstNode)
-    }
-    
-    func cloneGraph2(_ node: Node) -> Node {
-        if let value = nodeMap[node.val] { return value }
+        guard let node = node else { return nil }
         
-        var cloneNode = Node(node.val)
-        nodeMap[cloneNode.val] = cloneNode
-        for neighbor in node.neighbors {
-            guard neighbor != nil else { break }
-            cloneNode.neighbors.append(cloneGraph2(neighbor!))
-        }
-        return cloneNode
+        if let copiedNode = copiedNodes[node.val] {
+            return copiedNode
+        } else {
+            var newNode = Node(node.val)
+            copiedNodes[node.val] = newNode
+            node.neighbors.forEach { neighbor in
+                newNode.neighbors.append(cloneGraph(neighbor)) 
+            }
+            copiedNodes[node.val] = newNode
+            return newNode
+        }        
     }
 }
+
