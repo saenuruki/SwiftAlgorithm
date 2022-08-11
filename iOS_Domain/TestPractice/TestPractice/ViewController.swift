@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Combine
+//  TestPractice
 //
-//  Created by 塗木冴 on 2022/08/04.
+//  Created by 塗木冴 on 2022/08/11.
 //
 
 import UIKit
