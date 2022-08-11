@@ -18,6 +18,8 @@
 		BAA1ECD728A5376100A32AA7 /* TestPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1ECD628A5376100A32AA7 /* TestPracticeUITestsLaunchTests.swift */; };
 		BAA1ECE428A538EB00A32AA7 /* MathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1ECE328A538EB00A32AA7 /* MathItem.swift */; };
 		BAA1ECE628A539DC00A32AA7 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1ECE528A539DC00A32AA7 /* MathTests.swift */; };
+		BAA1ECE828A53EB000A32AA7 /* LeetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1ECE728A53EB000A32AA7 /* LeetCode.swift */; };
+		BAA1ECEA28A53F5400A32AA7 /* LeetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA1ECE928A53F5400A32AA7 /* LeetCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		BAA1ECD628A5376100A32AA7 /* TestPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BAA1ECE328A538EB00A32AA7 /* MathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathItem.swift; sourceTree = "<group>"; };
 		BAA1ECE528A539DC00A32AA7 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
+		BAA1ECE728A53EB000A32AA7 /* LeetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode.swift; sourceTree = "<group>"; };
+		BAA1ECE928A53F5400A32AA7 /* LeetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				BAA1ECBE28A5376000A32AA7 /* LaunchScreen.storyboard */,
 				BAA1ECC128A5376000A32AA7 /* Info.plist */,
 				BAA1ECE328A538EB00A32AA7 /* MathItem.swift */,
+				BAA1ECE728A53EB000A32AA7 /* LeetCode.swift */,
 			);
 			path = TestPractice;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			children = (
 				BAA1ECCA28A5376100A32AA7 /* TestPracticeTests.swift */,
 				BAA1ECE528A539DC00A32AA7 /* MathTests.swift */,
+				BAA1ECE928A53F5400A32AA7 /* LeetCode.swift */,
 			);
 			path = TestPracticeTests;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				BAA1ECB828A5375D00A32AA7 /* ViewController.swift in Sources */,
 				BAA1ECB428A5375D00A32AA7 /* AppDelegate.swift in Sources */,
 				BAA1ECE428A538EB00A32AA7 /* MathItem.swift in Sources */,
+				BAA1ECE828A53EB000A32AA7 /* LeetCode.swift in Sources */,
 				BAA1ECB628A5375D00A32AA7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +284,7 @@
 			files = (
 				BAA1ECCB28A5376100A32AA7 /* TestPracticeTests.swift in Sources */,
 				BAA1ECE628A539DC00A32AA7 /* MathTests.swift in Sources */,
+				BAA1ECEA28A53F5400A32AA7 /* LeetCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
