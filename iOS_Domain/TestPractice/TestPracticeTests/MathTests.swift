@@ -15,8 +15,7 @@ class MathTests: XCTestCase {
         
         XCTAssertEqual(math.addNumbers(3, 4), 7)
         XCTAssertEqual(math.multiplyNumbers(3, 4), 12)
-        XCTAssertEqual(math.isSameNumber(3, 4), false)
-
+        XCTAssertFalse(math.isSameNumber(3, 4))
     }
 
 }
