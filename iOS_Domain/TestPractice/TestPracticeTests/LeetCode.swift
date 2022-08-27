@@ -61,6 +61,24 @@ class LeetCode: XCTestCase {
             XCTAssertEqual(output, expectations[i])
         }
     }
+    
+    func testTikTok() {
+        let solution = Solution()
+        let testCases: [String] = [
+            "1+  1",
+            "2+ (3 *2 - 4) - 1",
+            "5*4-5/(((3+2)))",
+            "4-(2+(1))*2",
+            "12/(4-(2+(1))*2)",
+            "1234-234",
+            "0"
+        ]
+        let expectations = [2, 3, 19, -2, -6, 1000, 0]
+        for i in 0..<testCases.count {
+            let output = solution.calcurateFormula(testCases[i])
+            XCTAssertEqual(output, expectations[i])
+        }
+    }
 }
 
 extension LeetCode {

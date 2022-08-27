@@ -95,5 +95,94 @@ class Solution {
         }
         return result
     }
+    
+    
+    // "1+  1"
+    // "2+ (3 *2 - 4) - 1"
+    func calcurateFormula(_ formula: String) -> Int {
+        let fixedFormula = Array(formula.replacingOccurrences(of: " ", with: "")).map({ String($0) })
+        guard fixedFormula.count > 0 else { return 0 }
+        var numStack = [Int]()
+        var opeStack = [Operator]()
+        
+        // 1. Making Stacks
+        var skipIndex = -1
+        for i in 0..<fixedFormula.count where i > skipIndex {
+            let item = fixedFormula[i]
+            if let num = Int(item) {
+                if i >= 1, let previous = Int(fixedFormula[i - 1]) {
+                    let lastNum = numStack.removeLast()
+                    numStack.append(10 * lastNum + num)
+                } else {
+                    numStack.append(num)
+                }
+            } else if let oper = Operator(rawValue: item) {
+                if oper == .openParenthesis {
+                    var pointer = i + 1
+                    var openCount = 1
+                    while pointer < fixedFormula.count,
+                        !(fixedFormula[pointer] == Operator.closeParenthesis.rawValue &&
+                        openCount <= 1) {
+                        if fixedFormula[pointer] == Operator.openParenthesis.rawValue { openCount += 1 }
+                        if fixedFormula[pointer] == Operator.closeParenthesis.rawValue { openCount -= 1 }
+                        pointer += 1
+                    }
+                    let num = calcurateFormula(fixedFormula[(i+1)..<pointer].reduce("", +))
+                    numStack.append(num)
+                    skipIndex = pointer
+                } else {
+                    opeStack.append(oper)
+                }
+            }
+        }
+        
+        // 2. Calcurate high priority
+        guard numStack.count == opeStack.count + 1 else { return -1 } // error
+        var newNumStack: [Int] = [numStack[0]]
+        var newOpeStack = [Operator]()
+        for i in 0..<opeStack.count {
+            if opeStack[i].isHighPriority {
+                let num = opeStack[i].calc(newNumStack.last!, numStack[i + 1])
+                newNumStack[newNumStack.count - 1] = num
+            } else {
+                newNumStack.append(numStack[i + 1])
+                newOpeStack.append(opeStack[i])
+            }
+        }
+        
+        // 3. Calcurate low priority
+        guard newNumStack.count == newOpeStack.count + 1 else { return -1 } // error
+        var output = newNumStack[0]
+        for i in 0..<newOpeStack.count {
+            output = newOpeStack[i].calc(output, newNumStack[i + 1])
+        }
+        return output
+    }
+    
+    enum Operator: String {
+        case plus = "+"
+        case minus = "-"
+        case multiple = "*"
+        case devide = "/"
+        case openParenthesis = "("
+        case closeParenthesis = ")"
+        
+        var isHighPriority: Bool {
+            switch self {
+            case .multiple, .devide: return true
+            case .plus, .minus, .openParenthesis, .closeParenthesis: return false
+            }
+        }
+        
+        func calc(_ a: Int, _ b: Int) -> Int {
+            switch self {
+            case .plus: return a + b
+            case .minus: return a - b
+            case .multiple: return a * b
+            case .devide: return a / b
+            default: return -1 // error
+            }
+        }
+    }
 }
 
