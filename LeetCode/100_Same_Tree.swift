@@ -13,14 +13,13 @@
  *     }
  * }
  */
+
 class Solution {
     func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
-        return isMatch(p, q)
-    }
-    
-    func isMatch(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+        if p == nil && q == nil { return true }
+        if p != nil && q == nil { return false }
+        if p == nil && q != nil { return false }
         guard p?.val == q?.val else { return false }
-        if p == nil { return true }
-        return isMatch(p?.left, q?.left) && isMatch(p?.right, q?.right)
+        return isSameTree(p?.left, q?.left) && isSameTree(p?.right, q?.right)
     }
 }
