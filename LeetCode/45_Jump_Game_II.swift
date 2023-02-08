@@ -1,15 +1,13 @@
 class Solution {
     func jump(_ nums: [Int]) -> Int {
-        guard nums.count > 0 else { return 0 }
-        var dp = Array(repeating: Int.max, count: nums.count)
-        dp[0] = 0 // initial point
+        
+        var steps = Array(repeating: nums.count, count: nums.count)
+        steps[0] = 0
         for i in 0..<nums.count {
-            for j in 0...nums[i] {
-                guard i + j < dp.count else { continue }
-                dp[i + j] = min(dp[i + j], dp[i] + 1)
+            for j in 0...nums[i] where j + i < steps.count {
+                steps[j + i] = min(steps[i] + 1, steps[j + i])
             }
         }
-        return dp.last!
+        return steps.last!
     }
 }
-
