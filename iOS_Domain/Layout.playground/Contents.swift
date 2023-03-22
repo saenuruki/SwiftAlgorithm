@@ -4,10 +4,15 @@ class TestViewController: UIViewController {
     
     let closeButton = UIButton()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         configureLayout()
     }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        configureLayout()
+//    }
 
     func configureLayout() {
         
